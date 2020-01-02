@@ -42,4 +42,5 @@ stack_t *push_stack(stack_t **head, const int n);
 int pop_stack(stack_t **head);
 void free_stack(stack_t *head);
 char **parse_line(char *line);
+void (*getop(char *s))(stack_t **stack, unsigned int line_number);
 #endif
