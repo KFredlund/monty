@@ -1,5 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
+
+#define DELIMINATOR " \n"
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -31,8 +33,13 @@ typedef struct instruction_s
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
+
+extern int n;
+
 size_t print_stack(const stack_t *h);
 stack_t *push_stack(stack_t **head, const int n);
 int pop_stack(stack_t **head);
 void free_stack(stack_t *head);
+char **parse_line(char *line);
 #endif
