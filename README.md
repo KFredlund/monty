@@ -13,7 +13,7 @@ The monty program runs the bytecodes line by line and stop if either:
 it executed properly every line of the file
 it finds an error in the file
 an error occured
-If you can’t malloc anymore, print the error message Error: malloc failed, followed by a new line, and exit with status EXIT_FAILURE.
+If you can’t malloc anymore, print the error message Error: malloc failed, followed by a new line, and exit with status EXIT_FAILURE and prints errors to stderr.
 
 
 
