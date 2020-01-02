@@ -1,15 +1,17 @@
 #include "monty.h"
 #include <fcntl.h>
 
-int linecount = 0;
+int n = 0;
 
 int main(int argc, char **argv)
 {
-	char *line = NULL;
+	char *line = NULL; 
 	char **tokens = NULL;
 	FILE * fp;
 	ssize_t i = 0;
 	size_t buffersize = 0;
+	void (*func)(stack_t **, unsigned int);
+	int count = 0;
 
 	if (argc != 2)
 	{
@@ -23,11 +25,15 @@ int main(int argc, char **argv)
 	{
 		i = getline(&line, &buffersize, fp);
 		tokens = parse_line(line);
-		printf("%s\n", tokens[0]);	
+		if (tokens[1])
+			n = atoi(tokens[1]);
+		func = getop(*tokens);
+		printf("Reached");
+		func(&stack, count);
 
+		free(line);
+		count++;
 	}
 	fclose(fp);
-	if (line)
-		free(line);
-	exit(EXIT_SUCCESS);
+	return (0);
 }

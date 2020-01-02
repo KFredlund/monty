@@ -7,10 +7,10 @@
 */
 void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 {
-	stack_t ops[] = {
-		{"push", "op_push"},
-		{"pall", "op_pall"},
-		{"pint", "op_pint"},
+	instruction_t ops[] = {
+		{"push", op_push},
+		{"pall", op_pall},
+		/*{"pint", "op_pint"},
 		{"pop", "op_pop"},
 		{"push", "op_push"},
 		{"swap", "op_swap"},
@@ -26,15 +26,16 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 		{"rotl", "op_rotl"},
 		{"rotr", "op_rotr"},
 		{"stack", "op_stack"},
-		{"queue", "op_queue"},
+		{"queue", "op_queue"},*/
 		{NULL, NULL}
 };
 		int i = 0;
 
-		while i < 19
+		while (i < 19)
 		{
-			if (*ops[i].opcode == *s)
-				return (ops[i].getop);
+			if (ops[i].opcode == s)
+				return (ops[i].f);
 			i++;
 		}
+	return (NULL);
 }	

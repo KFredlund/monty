@@ -37,8 +37,11 @@ typedef struct instruction_s
 
 extern int n;
 
-size_t print_stack(const stack_t *h);
-stack_t *push_stack(stack_t **head, const int n);
+extern stack_t *stack;
+stack_t *stack;
+
+void op_pall(stack_t **stack, unsigned int l_number);
+void op_push(stack_t **stack, unsigned int l_number);
 int pop_stack(stack_t **head);
 void free_stack(stack_t *head);
 char **parse_line(char *line);

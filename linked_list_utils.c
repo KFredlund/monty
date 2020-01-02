@@ -5,18 +5,17 @@
  * @h: List node passed in
  * Return: Count of what was printed.
  */
-size_t print_stack(const stack_t *h)
+void op_pall(stack_t **head, unsigned int line_number)
 {
 
 	int i = 0;
 
-	while (h != NULL)
+	while (*head != NULL)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
+		printf("%d\n", (*head)->n);
+		*head = (*head)->next;
 		i++;
 	}
-	return (i);
 }
 
 /**
@@ -25,24 +24,21 @@ size_t print_stack(const stack_t *h)
  * @n: number to coy
  * Return: Always new
  */
-stack_t *push_stack(stack_t **head, const int n)
+void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	stack_t *current = *head;
-
-	if (new == NULL)
-		return (NULL);
+	stack_t *current = *stack;
+	if (new == NULL)	
+		exit(EXIT_FAILURE);
 
 	new->n = n;
 	new->prev = NULL;
-	new->next = *head;
-	if (*head != NULL)
+	new->next = *stack;
+	if (*stack != NULL)
 		current->prev = new;
-	*head = new;
-	if (*head == NULL)
-		return (NULL);
-
-	return (new);
+	*stack = new;
+	if (*stack == NULL)
+		exit(EXIT_FAILURE);
 }
 /**
  * pop_stack - Deletes top Node of stack
