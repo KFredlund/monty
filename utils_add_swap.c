@@ -77,3 +77,61 @@ void op_sub(stack_t **head, unsigned int line_number)
 	}
 	*head = new;
 }
+
+/**
+ * op_div - divides the data of the top node from the second,
+ * and creates a new node and replaces them
+ * @head: List node passed in
+ * @line_number: line number var
+ * Return: Never
+ */
+void op_div(stack_t **head, unsigned int line_number)
+{
+	int i = 0;
+	stack_t *current = *head;
+	stack_t *new;
+
+	new = malloc(sizeof(stack_t));
+	if (!new)
+		new = NULL;
+	i = current->n / current->next->n;
+	new->n = i;
+	new->next = NULL;
+	new->prev = NULL;
+	if (current)
+	{
+		new = current->next;
+		new->n = i;
+		(*head)->next->prev = new;
+	}
+	*head = new;
+}
+/**
+ * op_mul - multiplies the data of the top node from the second,
+ * and creates a new node and replaces them
+ * @head: List node passed in
+ * @line_number: line number var
+ * Return: Never
+ */
+void op_mul(stack_t **head, unsigned int line_number)
+{
+        int i = 0;
+        stack_t *current = *head;
+        stack_t *new;
+
+        new = malloc(sizeof(stack_t));
+        if (!new)
+                new = NULL;
+        i = current->n * current->next->n;
+        new->n = i;
+        new->next = NULL;
+        new->prev = NULL;
+        if (current)
+        {
+                new = current->next;
+                new->n = i;
+                (*head)->next->prev = new;
+        }
+        *head = new;
+}
+
