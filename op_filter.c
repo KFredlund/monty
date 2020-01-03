@@ -12,8 +12,8 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 		{"pall", op_pall},
 		/*{"pint", "op_pint"},*/
 		{"pop", op_pop},
-		/*{"push", "op_push"},
-		{"swap", "op_swap"},*/
+		/*{"push", "op_push"},*/
+		{"swap", op_swap},
 		{"add", op_add},
 		{"nop", op_nop},
 		/*{"sub", "op_sub"},
