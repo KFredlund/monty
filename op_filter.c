@@ -14,9 +14,9 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 		{"pop", "op_pop"},
 		{"push", "op_push"},
 		{"swap", "op_swap"},
-		{"add", "op_add"},
-		{"nop", "op_nop"},
-		{"sub", "op_sub"},
+		{"add", "op_add"},*/
+		{"nop", op_nop},
+		/*{"sub", "op_sub"},
 		{"div", "op_div"},
 		{"mul", "op_mul"},
 		{"mod", "op_mod"},
