@@ -61,7 +61,21 @@ int pop_stack(stack_t **head)
 	free(current);
 	return (1);
 }
+/**
+ * op_nop - prints every element within a node of a single linked list
+ * @h: List node passed in
+ * Return: Count of what was printed.
+ */
+void op_nop(stack_t **head, unsigned int line_number)
+{
+	int i = 1;
 
+	while (i >= 0)
+	{
+		i--;
+		continue;
+	}
+}
 /**
  * free_dlistint - Frees a singly linked list
  * @head: List to free
