@@ -8,20 +8,21 @@
  */
 void op_add(stack_t **head, unsigned int line_number)
 {
+	int i = 0;
 	stack_t *current = *head;
-	stack_t *new, *temp;
+	stack_t *new;
 
 	new = malloc(sizeof(stack_t));
 	if (!new)
 		new = NULL;
-	new->n = current->n + current->next->n;
+	i = current->n + current->next->n;
+	new->n = i;
 	new->next = NULL;
 	new->prev = NULL;
-	temp->n = new->n;
 	if (current)
 	{
 		new = current->next;
-		new->n = temp->n;
+		new->n = i; 
 		(*head)->next->prev = new;
 	}
 	*head = new;
@@ -35,7 +36,7 @@ void op_add(stack_t **head, unsigned int line_number)
 void op_swap(stack_t **head, unsigned int line_number)
 {
 	stack_t *current = *head;
-	stack_t *hold;
+	stack_t *hold = NULL;
 
 	if (current)
 	{
