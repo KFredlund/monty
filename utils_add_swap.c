@@ -115,23 +115,23 @@ void op_div(stack_t **head, unsigned int line_number)
  */
 void op_mul(stack_t **head, unsigned int line_number)
 {
-        int i = 0;
-        stack_t *current = *head;
-        stack_t *new;
+	int i = 0;
+	stack_t *current = *head;
+	stack_t *new;
 
-        new = malloc(sizeof(stack_t));
-        if (!new)
-                new = NULL;
-        i = current->n * current->next->n;
-        new->n = i;
-        new->next = NULL;
-        new->prev = NULL;
-        if (current)
-        {
-                new = current->next;
-                new->n = i;
-                (*head)->next->prev = new;
-        }
-        *head = new;
+	new = malloc(sizeof(stack_t));
+	if (!new)
+		new = NULL;
+	i = current->n * current->next->n;
+	new->n = i;
+	new->next = NULL;
+	new->prev = NULL;
+	if (current)
+	{
+		new = current->next;
+		new->n = i;
+		(*head)->next->prev = new;
+	}
+	*head = new;
 }
 
