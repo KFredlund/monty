@@ -44,22 +44,22 @@ void op_push(stack_t **list_add, unsigned int line_number)
 	printf("After func\n");
 }
 /**
- * pop_stack - Deletes top Node of stack
- * @headL stack
- * Return: -1 if fails
+ * op_pop - Pop the top element of the stack
+ * @head: Head of linked list
+ * @line_number: Self explanatory
+ * Return: Never
  */
-int pop_stack(stack_t **head)
+void op_pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *current;
 	if (head == NULL || *head == NULL)
-		return (-1);
+		exit(EXIT_FAILURE);
 
 	current = *head;
 	*head = current->next;
 	if (current->next != NULL)
 		current->next->prev = NULL;
 	free(current);
-	return (1);
 }
 /**
  * op_nop - prints every element within a node of a single linked list
