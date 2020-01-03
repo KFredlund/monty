@@ -11,26 +11,28 @@ int main(int argc, char **argv)
 	ssize_t i = 0;
 	size_t buffersize = 0;
 	void (*func)(stack_t **, unsigned int);
-	int count = 0;
+	unsigned int count = 0;
 
 	if (argc != 2)
 	{
-		printf("USAGE: monty file");
+		printf("USAGE: monty file\n");
 		exit (EXIT_FAILURE);
 	}
 
 	fp = fopen(argv[1], "r");
-
 	while (i != -1)
 	{
 		i = getline(&line, &buffersize, fp);
+		printf("Got the line\n");
+		printf("Before Parse: %s\n", line);
 		tokens = parse_line(line);
-		if (tokens[1])
+		printf("After parse: %s\n", tokens[1]);
+		if (tokens[1] != NULL)
 			n = atoi(tokens[1]);
-		func = getop(*tokens);
-		printf("Reached");
-		func(&stack, count);
-
+		func = getop(tokens[0]);
+		printf("Reached\n");
+		func(&list, count);
+		free(tokens);
 		free(line);
 		count++;
 	}

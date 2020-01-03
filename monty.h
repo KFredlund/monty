@@ -1,7 +1,8 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define DELIMINATOR " \n"
+#define DELIMINATOR "\n "
+#define BUFFERSIZE 1024
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -37,8 +38,8 @@ typedef struct instruction_s
 
 extern int n;
 
-extern stack_t *stack;
-stack_t *stack;
+extern stack_t *list;
+stack_t *list;
 
 void op_pall(stack_t **stack, unsigned int l_number);
 void op_push(stack_t **stack, unsigned int l_number);
@@ -46,4 +47,5 @@ int pop_stack(stack_t **head);
 void free_stack(stack_t *head);
 char **parse_line(char *line);
 void (*getop(char *s))(stack_t **stack, unsigned int line_number);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 #endif

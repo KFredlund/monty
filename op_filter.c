@@ -33,7 +33,7 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 
 		while (i < 19)
 		{
-			if (ops[i].opcode == s)
+			if (strcmp(ops[i].opcode, s) == 0)
 				return (ops[i].f);
 			i++;
 		}

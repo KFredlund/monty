@@ -9,13 +9,15 @@ void op_pall(stack_t **head, unsigned int line_number)
 {
 
 	int i = 0;
-
-	while (*head != NULL)
+	stack_t *current = list;
+	printf("Entered pall\n");
+	while (current != NULL)
 	{
-		printf("%d\n", (*head)->n);
-		*head = (*head)->next;
+		printf("%d\n", current->n);
+		current = current->next;
 		i++;
 	}
+	printf("Left Pall\n");
 }
 
 /**
@@ -24,21 +26,22 @@ void op_pall(stack_t **head, unsigned int line_number)
  * @n: number to coy
  * Return: Always new
  */
-void op_push(stack_t **stack, unsigned int line_number)
+void op_push(stack_t **list_add, unsigned int line_number)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	stack_t *current = *stack;
+	stack_t *current = *list_add;
 	if (new == NULL)	
 		exit(EXIT_FAILURE);
 
 	new->n = n;
 	new->prev = NULL;
-	new->next = *stack;
-	if (*stack != NULL)
+	new->next = current;
+	if (*list_add != NULL)
 		current->prev = new;
-	*stack = new;
-	if (*stack == NULL)
-		exit(EXIT_FAILURE);
+	*list_add = new;
+	printf("Reached in func\n");
+	printf("%d\n", list->n);
+	printf("After func\n");
 }
 /**
  * pop_stack - Deletes top Node of stack
