@@ -23,6 +23,8 @@ int main(int argc, char **argv)
 	while (i != -1)
 	{
 		i = getline(&line, &buffersize, fp);
+		if (i != -1)
+		{
 		printf("Got the line\n");
 		printf("Before Parse: %s\n", line);
 		tokens = parse_line(line);
@@ -32,7 +34,7 @@ int main(int argc, char **argv)
 		func = getop(tokens[0]);
 		printf("Reached\n");
 		func(&list, count);
-		free(tokens);
+		}
 		free(line);
 		count++;
 	}
