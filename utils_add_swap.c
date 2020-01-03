@@ -8,7 +8,6 @@
  */
 void op_add(stack_t **head, unsigned int line_number)
 {
-	int i = 0;
 	stack_t *current = *head;
 	stack_t *new, *temp;
 
@@ -27,4 +26,25 @@ void op_add(stack_t **head, unsigned int line_number)
 	}
 	*head = new;
 }
+/**
+ * op_swap - swaps the top two nodes
+ * @head: List node passed in
+ * @line_number: line number var
+ * Return: Never
+ */
+void op_swap(stack_t **head, unsigned int line_number)
+{
+	stack_t *current = *head;
+	stack_t *hold;
 
+	if (current)
+	{
+		hold = (*head)->next;
+		current->next = hold->next;
+		current->prev = hold;
+		hold->prev = NULL;
+		hold->next->prev = current;
+		hold->next = current;
+	}
+	*head = hold;
+}
