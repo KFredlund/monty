@@ -10,9 +10,9 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 	instruction_t ops[] = {
 		{"push", op_push},
 		{"pall", op_pall},
-		/*{"pint", "op_pint"},
-		{"pop", "op_pop"},
-		{"push", "op_push"},
+		/*{"pint", "op_pint"},*/
+		{"pop", op_pop},
+		/*{"push", "op_push"},
 		{"swap", "op_swap"},
 		{"add", "op_add"},*/
 		{"nop", op_nop},

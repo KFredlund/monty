@@ -43,7 +43,7 @@ stack_t *list;
 
 void op_pall(stack_t **stack, unsigned int l_number);
 void op_push(stack_t **stack, unsigned int l_number);
-int pop_stack(stack_t **head);
+void op_pop(stack_t **head, unsigned int l_number);
 void op_nop(stack_t **head, unsigned int line_number);
 void free_stack(stack_t *head);
 char **parse_line(char *line);
