@@ -3,6 +3,14 @@
 
 #define DELIMINATOR "\n "
 #define BUFFERSIZE 1024
+
+
+typedef struct used_memory
+{
+	char *data;
+	struct used_memory *next;
+} used_m;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,6 +49,9 @@ extern int n;
 extern stack_t *list;
 stack_t *list;
 
+extern used_m *tok_get;
+used_m *tok_get;
+
 void op_pall(stack_t **stack, unsigned int l_number);
 void op_push(stack_t **stack, unsigned int l_number);
 void op_pop(stack_t **head, unsigned int l_number);
@@ -52,4 +63,6 @@ void free_stack(stack_t *head);
 char **parse_line(char *line);
 void (*getop(char *s))(stack_t **stack, unsigned int line_number);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void add_node(char *str);
+void free_list(used_m **head);
 #endif
