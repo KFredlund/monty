@@ -23,6 +23,7 @@ int main(int argc, char **argv)
 	while (c == 1)
 	{
 		i = getline(&line, &buffersize, fp);
+		add_node(line);
 		if (i != -1)
 		{
 			printf("Got the line\n");
@@ -40,5 +41,37 @@ int main(int argc, char **argv)
 		count++;
 	}
 	fclose(fp);
+	free_list(&tok_get);
+	free_stack(list);
 	return (0);
+}
+
+void add_node(char *str)
+{
+	used_m *new;
+	new = malloc(sizeof(used_m));
+	if (new == NULL)
+		exit(EXIT_FAILURE);
+
+	new->data = str;
+	new->next = tok_get;
+	tok_get = new;
+}
+
+void free_list(used_m **head)
+{
+	used_m *new;
+	used_m *current;
+
+	if (*head)
+	{
+		current = *head;
+		while (current)
+		{
+			new = current;
+			current = current->next;
+			free(new->data);
+			free(new);
+		}
+	}
 }
