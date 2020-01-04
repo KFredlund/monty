@@ -21,8 +21,8 @@ void op_mod(stack_t **head, unsigned int line_number)
 		i = current->n % current->next->n;
 		current->next->n = i;
 		current->next->prev = NULL;
-		free(current);
 		*head = (*head)->next;
+		free(current);
 	}
 	else
 		handle_error(13, line_number, "hiiiii");
