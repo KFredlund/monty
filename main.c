@@ -1,13 +1,19 @@
 #include "monty.h"
 #include <fcntl.h>
 #include <ctype.h>
-
+/**
+* main - Entry point
+* @argc: number of args
+* @argv: pointer to args
+*
+* Return: Never
+*/
 int main(int argc, char **argv)
 {
-	char *line = NULL; 
+	char *line = NULL;
 	char **tokens = NULL;
 	ssize_t i = 0, c = 1;
-	size_t buffersize = 0; 
+	size_t buffersize = 0;
 	void (*func)(stack_t **, unsigned int);
 	unsigned int count = 1;
 
@@ -36,17 +42,23 @@ int main(int argc, char **argv)
 			func(&list, count), free(tokens);
 		}
 		else
-			c = 0;	
+			c = 0;
 		count++;
 	}
 	fclose(fp);
 	free_list(&tok_get), free_stack(list);
 	return (0);
 }
-
+/**
+* add_node - Function that adds a node
+* @str: top of stack
+*
+* Return: Never
+*/
 void add_node(char *str)
 {
 	used_m *new;
+
 	new = malloc(sizeof(used_m));
 	if (new == NULL)
 		exit(EXIT_FAILURE);
@@ -55,7 +67,12 @@ void add_node(char *str)
 	new->next = tok_get;
 	tok_get = new;
 }
-
+/**
+* free_list - Function that frees a list
+* @head: top of stack
+*
+* Return: Never
+*/
 void free_list(used_m **head)
 {
 	used_m *new;
