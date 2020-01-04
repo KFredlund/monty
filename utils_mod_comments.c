@@ -25,5 +25,5 @@ void op_mod(stack_t **head, unsigned int line_number)
 		free(current);
 	}
 	else
-		handle_error(10, line_number, "hiiiii");
+		handle_error(13, line_number, "hiiiii");
 }
