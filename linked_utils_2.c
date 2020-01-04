@@ -39,7 +39,7 @@ void check_push(char **tokens, unsigned int line)
 int is_integer(char *str)
 {
 	unsigned long i = 0;
-	
+
 	if (str[0] == '-')
 		i++;
 	while (i < strlen(str))
