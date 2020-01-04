@@ -11,6 +11,8 @@ void op_pall(stack_t **head, unsigned int line_number)
 
 	int i = 0;
 	stack_t *current = list;
+	(void)line_number;
+	(void)head;
 
 	while (current != NULL)
 	{
@@ -67,6 +69,8 @@ void op_pop(stack_t **head, unsigned int line_number)
 void op_nop(stack_t **head, unsigned int line_number)
 {
 	int i = 1;
+	(void)head;
+	(void)line_number;
 
 	while (i >= 0)
 	{
