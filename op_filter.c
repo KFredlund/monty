@@ -21,8 +21,8 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 		{"mod", "op_mod"},
 		{"#", "op_comments"},*/
 		{"pchar", op_pchar},
-		/*{"pstr", "op_pstr"},
-		{"rotl", "op_rotl"},
+		{"pstr", op_pstr},
+		/*{"rotl", "op_rotl"},
 		{"rotr", "op_rotr"},
 		{"stack", "op_stack"},
 		{"queue", "op_queue"},*/
