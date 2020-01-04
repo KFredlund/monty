@@ -65,6 +65,7 @@ void op_sub(stack_t **head, unsigned int line_number)
 		current = *head;
 		i = current->n - current->next->n;
 		current->next->n = i;
+		current->next->prev = NULL;
 		free(current);
 		*head = (*head)->next;
 	}
@@ -90,6 +91,7 @@ void op_div(stack_t **head, unsigned int line_number)
 		current = *head;
 		i = current->n / current->next->n;
 		current->next->n = i;
+		current->next->prev = NULL;
 		free(current);
 		*head = (*head)->next;
 	}
@@ -113,6 +115,7 @@ void op_mul(stack_t **head, unsigned int line_number)
 		current = *head;
 		i = current->n * current->next->n;
 		current->next->n = i;
+		current->next->prev = NULL;
 		free(current);
 		*head = (*head)->next;
 	}
