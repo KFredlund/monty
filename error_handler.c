@@ -48,6 +48,7 @@ void handle_error(int flag, unsigned int line_number, char *name)
 	}
 	free_list(&tok_get);
 	free_stack(list);
+	free(tokens);
 	if (flag != 2)
 		fclose(fp);
 	exit(EXIT_FAILURE);
@@ -80,6 +81,7 @@ void handle_error_2(int flag, unsigned int line_number)
 	}
 	free_list(&tok_get);
 	free_stack(list);
+	free(tokens);
 	if (flag != 0)
 		fclose(fp);
 	exit(EXIT_FAILURE);

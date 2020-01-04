@@ -11,7 +11,6 @@
 int main(int argc, char **argv)
 {
 	char *line = NULL;
-	char **tokens = NULL;
 	ssize_t i = 0, c = 1;
 	size_t buffersize = 0;
 	void (*func)(stack_t **, unsigned int);
@@ -22,6 +21,7 @@ int main(int argc, char **argv)
 	fp = fopen(argv[1], "r");
 	if (!fp)
 		handle_error(2, count, argv[1]);
+	tokens = NULL;
 	while (c == 1)
 	{
 		line = NULL;

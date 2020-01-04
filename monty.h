@@ -56,6 +56,9 @@ stack_t *list;
 extern used_m *tok_get;
 used_m *tok_get;
 
+extern char **tokens;
+char **tokens;
+
 void op_pall(stack_t **stack, unsigned int l_number);
 void op_push(stack_t **stack, unsigned int l_number);
 void op_pop(stack_t **head, unsigned int l_number);
