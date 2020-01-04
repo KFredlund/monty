@@ -84,12 +84,10 @@ void op_div(stack_t **head, unsigned int line_number)
 	stack_t *current;
 	int i = 0;
 
-	if ((*head)->next == NULL)
-		handle_error(10, line_number, "hiiiii");
-	if ((*head)->n == 0)
-		handle_error(11, line_number, "hiiiii");
 	if (*head && (*head)->next)
 	{
+		if ((*head)->n == 0)
+                	handle_error(11, line_number, "hiiiii");
 		current = *head;
 		i = current->next->n / current->n;
 		current->next->n = i;
@@ -97,6 +95,8 @@ void op_div(stack_t **head, unsigned int line_number)
 		*head = (*head)->next;
 		free(current);
 	}
+	else
+                handle_error(10, line_number, "hiiiii");
 }
 /**
  * op_mul - multiplies the data of the top node from the second,
