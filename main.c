@@ -9,19 +9,13 @@ int main(int argc, char **argv)
 	ssize_t i = 0, c = 1;
 	size_t buffersize = 0; 
 	void (*func)(stack_t **, unsigned int);
-	unsigned int count = 0;
+	unsigned int count = 1;
 
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit (EXIT_FAILURE);
-	}
+		handle_error(0, count, argv[1]);
 	fp = fopen(argv[1], "r");
 	if (!fp)
-	{
-		fprintf(stderr,"Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(2, count, argv[1]);
 	while (c == 1)
 	{
 		line = NULL;
