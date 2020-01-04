@@ -29,16 +29,18 @@ void op_add(stack_t **head, unsigned int line_number)
  */
 void op_swap(stack_t **head, unsigned int line_number)
 {
-	stack_t *current = *head;
+	stack_t *current;
 	stack_t *hold = NULL;
 
-	if (current)
+	if (*head && (*head)->next)
 	{
+		current = *head;
 		hold = (*head)->next;
 		current->next = hold->next;
 		current->prev = hold;
 		hold->prev = NULL;
-		hold->next->prev = current;
+		if (hold->next)
+			hold->next->prev = current;
 		hold->next = current;
 	}
 	else
