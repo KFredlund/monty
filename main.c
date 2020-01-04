@@ -12,10 +12,11 @@ int main(int argc, char **argv)
 {
 	char *line = NULL;
 	ssize_t i = 0, c = 1;
-	size_t buffersize = 0;
+	size_t buffersize = 1024;
 	void (*func)(stack_t **, unsigned int);
 	unsigned int count = 1;
 
+	fp = NULL;
 	if (argc != 2)
 		handle_error(0, count, argv[1]);
 	fp = fopen(argv[1], "r");
@@ -27,7 +28,7 @@ int main(int argc, char **argv)
 		line = NULL;
 		i = getline(&line, &buffersize, fp);
 		add_node(line);
-		if (line[0] == '#')
+		if (i != -1 && line[0] == '#')
 		{
 			count++;
 			continue;
