@@ -32,6 +32,7 @@ void op_pchar(stack_t **head, unsigned int line_number)
 void op_pstr(stack_t **head, unsigned int line_number)
 {
 	stack_t *current;
+	(void)line_number;
 
 	current = *head;
 	while (current->next)
