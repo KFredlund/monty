@@ -13,6 +13,8 @@ void op_mod(stack_t **head, unsigned int line_number)
 	stack_t *current;
 	int i = 0;
 
+	if ((*head)->next == NULL)
+		handle_error(10, line_number, "hiiiii");
 	if ((*head)->n == 0)
 		handle_error(14, line_number, "hiiiii");
 	if (*head && (*head)->next)
@@ -24,6 +26,4 @@ void op_mod(stack_t **head, unsigned int line_number)
 		*head = (*head)->next;
 		free(current);
 	}
-	else
-		handle_error(13, line_number, "hiiiii");
 }
