@@ -9,37 +9,41 @@ int main(int argc, char **argv)
 	char **tokens = NULL;
 	FILE * fp = NULL;
 	ssize_t i = 0, c = 1;
-	size_t buffersize = 1024; 
+	size_t buffersize = 0; 
 	void (*func)(stack_t **, unsigned int);
 	unsigned int count = 0;
 
 	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit (EXIT_FAILURE);
 	}
-
 	fp = fopen(argv[1], "r");
+	if (!fp)
+	{
+		fprintf(stderr,"Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while (c == 1)
 	{
-		i = getline(&line, &buffersize, fp);
+		i = getline(&line, &buffersize, fp);	
 		add_node(line);
 		if (i != -1)
 		{
-			printf("Got the line\n");
-			printf("Before Parse: %s\n", line);
 			tokens = parse_line(line);
-			printf("After parse: %s\n", tokens[1]);
-			if (tokens[1] != NULL)
-				n = atoi(tokens[1]);
 			func = getop(tokens[0]);
-			printf("Reached\n");
+			if (tokens[1] != NULL)
+			{
+				n = atoi(tokens[1]);
+			}
 			func(&list, count);
+			free(tokens);
 		}
 		else
 			c = 0;
-		free(tokens);
+		
 		count++;
+		line = NULL;
 	}
 	fclose(fp);
 	free_list(&tok_get);
@@ -62,17 +66,18 @@ void add_node(char *str)
 void free_list(used_m **head)
 {
 	used_m *new;
-	used_m *current;
+	unsigned int i = 0;
 
 	if (*head)
 	{
-		current = *head;
-		while (current)
+		while (*head)
 		{
-			new = current;
-			current = current->next;
-			free(new->data);
+			new = *head;
+			*head = (*head)->next;
+			if (new->data != NULL)
+				free(new->data);
 			free(new);
+			i++;
 		}
 	}
 }
