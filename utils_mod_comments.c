@@ -13,10 +13,7 @@ void op_mod(stack_t **head, unsigned int line_number)
 	stack_t *current = *head;
 	int i = 0;
 	if ((*head)->n == 0)
-	{
-		fprintf(stderr, "L%u: division by zero\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(14, line_number, "hiiiii");
 	if ((*head)->next->next)
 	{
 		i = current->n % current->next->n;
@@ -25,19 +22,5 @@ void op_mod(stack_t **head, unsigned int line_number)
 		*head = (*head)->next;
 	}
 	else
-	{
-		fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(13, line_number, "hiiiii");
 }
-/**
-* op_comments - function that handles ignores line prefaced with a '#'
-* @head: top of stack
-* @line_number: line number passed here
-*
-* Return: Never
-*
-void op_comments(stack_t **head, unsigned int line_number)
-{
-	if 
-}*/

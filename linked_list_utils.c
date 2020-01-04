@@ -32,8 +32,7 @@ void op_push(stack_t **list_add, unsigned int line_number)
 	stack_t *current = *list_add;
 
 	if (new == NULL)
-		exit(EXIT_FAILURE);
-
+		handle_error(4, line_number, "hiiiii");
 	new->n = n;
 	new->prev = NULL;
 	new->next = current;
@@ -52,8 +51,7 @@ void op_pop(stack_t **head, unsigned int line_number)
 	stack_t *current;
 
 	if (head == NULL || *head == NULL)
-		exit(EXIT_FAILURE);
-
+		handle_error(6, line_number, "hiiiii");
 	current = *head;
 	*head = current->next;
 	if (current->next != NULL)

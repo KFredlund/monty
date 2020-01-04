@@ -19,10 +19,7 @@ void op_add(stack_t **head, unsigned int line_number)
 		*head = (*head)->next;
 	}
 	else
-	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(8, line_number, "hiiii");
 }
 /**
  * op_swap - swaps the top two nodes
@@ -44,6 +41,8 @@ void op_swap(stack_t **head, unsigned int line_number)
 		hold->next->prev = current;
 		hold->next = current;
 	}
+	else
+		handle_error(7, line_number, "hiiiii");
 	*head = hold;
 }
 /**
@@ -66,10 +65,7 @@ void op_sub(stack_t **head, unsigned int line_number)
 		*head = (*head)->next;
 	}
 	else
-	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(9, line_number, "hiiiii");
 }
 /**
  * op_div - divides the data of the top node from the second,
@@ -83,6 +79,8 @@ void op_div(stack_t **head, unsigned int line_number)
 	stack_t *current = *head;
 	int i = 0;
 
+	if ((*head)->n == 0)
+		handle_error(11, line_number, "hiiiii");
 	if ((*head)->next->next)
 	{
 		i = current->n / current->next->n;
@@ -91,11 +89,7 @@ void op_div(stack_t **head, unsigned int line_number)
 		*head = (*head)->next;
 	}
 	else
-	{
-		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
+		handle_error(10, line_number, "hiiiii");
 }
 /**
  * op_mul - multiplies the data of the top node from the second,
@@ -117,9 +111,5 @@ void op_mul(stack_t **head, unsigned int line_number)
 		*head = (*head)->next;
 	}
 	else
-	{
-		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
+		handle_error(12, line_number, "hiiiii");
 }

@@ -21,10 +21,6 @@ void op_pchar(stack_t **head, unsigned int line_number)
 void op_pstr(stack_t **head, unsigned int line_number)
 {
 	stack_t *current;
-	if (*head == NULL || head == NULL)
-	{
-		exit(EXIT_FAILURE);
-	}
 	current = *head;
 
 	while (current->next)
