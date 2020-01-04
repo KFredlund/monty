@@ -18,7 +18,7 @@ void op_mod(stack_t **head, unsigned int line_number)
 	if (*head && (*head)->next)
 	{
 		current = *head;
-		i = current->n % current->next->n;
+		i = current->next->n % current->n;
 		current->next->n = i;
 		current->next->prev = NULL;
 		*head = (*head)->next;
