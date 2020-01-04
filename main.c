@@ -26,28 +26,28 @@ int main(int argc, char **argv)
 	}
 	while (c == 1)
 	{
-		i = getline(&line, &buffersize, fp);	
+		line = NULL;
+		i = getline(&line, &buffersize, fp);
 		add_node(line);
+		if (line[0] == '#')
+		{
+			count++;
+			continue;
+		}
 		if (i != -1)
 		{
 			tokens = parse_line(line);
 			func = getop(tokens[0]);
 			if (tokens[1] != NULL)
-			{
-				n = atoi(tokens[1]);
-			}
-			func(&list, count);
-			free(tokens);
+				n = atoi(tokens[1]);	
+			func(&list, count), free(tokens);
 		}
 		else
-			c = 0;
-		
+			c = 0;	
 		count++;
-		line = NULL;
 	}
 	fclose(fp);
-	free_list(&tok_get);
-	free_stack(list);
+	free_list(&tok_get), free_stack(list);
 	return (0);
 }
 
