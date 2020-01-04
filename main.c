@@ -1,13 +1,11 @@
 #include "monty.h"
 #include <fcntl.h>
-
-int n = 0;
+#include <ctype.h>
 
 int main(int argc, char **argv)
 {
 	char *line = NULL; 
 	char **tokens = NULL;
-	FILE * fp = NULL;
 	ssize_t i = 0, c = 1;
 	size_t buffersize = 0; 
 	void (*func)(stack_t **, unsigned int);
@@ -38,8 +36,9 @@ int main(int argc, char **argv)
 		{
 			tokens = parse_line(line);
 			func = getop(tokens[0]);
-			if (tokens[1] != NULL)
-				n = atoi(tokens[1]);	
+			if (tokens[1] != NULL && isdigit(tokens[1]) != 0)
+				n = atoi(tokens[1]);
+			/*else if isdigit(tokens[1] == 0)*/
 			func(&list, count), free(tokens);
 		}
 		else
