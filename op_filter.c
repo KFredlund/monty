@@ -2,15 +2,16 @@
 /**
 * getop - function that gets the correct function for operation
 * @s: string var
+* @count: int count
 *
 * Return: Never
 */
-void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int line_number)
+void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int l)
 {
 	instruction_t ops[] = {
 		{"push", op_push},
 		{"pall", op_pall},
-		{"pint", op_pint}, 
+		{"pint", op_pint},
 		{"pop", op_pop},
 		{"swap", op_swap},
 		{"add", op_add},
@@ -21,10 +22,12 @@ void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int line_nu
 		{"mod", op_mod},
 		{"pchar", op_pchar},
 		{"pstr", op_pstr},
-		/*{"rotl", "op_rotl"},
-		{"rotr", "op_rotr"},
-		{"stack", "op_stack"},
-		{"queue", "op_queue"},*/
+/*
+*		{"rotl", "op_rotl"},
+*		{"rotr", "op_rotr"},
+*		{"stack", "op_stack"},
+*		{"queue", "op_queue"},
+*/
 		{NULL, NULL}
 };
 		int i = 0;
@@ -36,5 +39,5 @@ void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int line_nu
 			i++;
 		}
 	handle_error(3, count, s);
-	return(NULL);
-}	
+	return (NULL);
+}

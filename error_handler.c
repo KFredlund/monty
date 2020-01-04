@@ -11,7 +11,7 @@ void handle_error_2(int flag, unsigned int l_n);
 
 void handle_error(int flag, unsigned int line_number, char *name)
 {
-	switch(flag)
+	switch (flag)
 	{
 		case 1: /* Malloc Fails */
 			fprintf(stderr, "Error: malloc failed\n");
@@ -29,7 +29,7 @@ void handle_error(int flag, unsigned int line_number, char *name)
 			fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 			break;
 		case 6: /* Pop fails */
-			fprintf(stderr,"L%u: can't pop an empty stack\n", line_number);
+			fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 			break;
 		case 7: /* Swap Fails */
 			fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
@@ -49,7 +49,7 @@ void handle_error(int flag, unsigned int line_number, char *name)
 	free_list(&tok_get);
 	free_stack(list);
 	fclose(fp);
-	exit(EXIT_FAILURE);	
+	exit(EXIT_FAILURE);
 }
 ;
 /**
@@ -60,7 +60,7 @@ void handle_error(int flag, unsigned int line_number, char *name)
  */
 void handle_error_2(int flag, unsigned int line_number)
 {
-	switch(flag)
+	switch (flag)
 	{
 		case 11: /* Div fails, division by zero */
 			fprintf(stderr, "L%u: division by zero\n", line_number);
