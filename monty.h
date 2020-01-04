@@ -45,6 +45,10 @@ typedef struct instruction_s
 #include <string.h>
 
 extern int n;
+int n;
+
+extern FILE * fp;
+FILE * fp;
 
 extern stack_t *list;
 stack_t *list;
@@ -63,6 +67,7 @@ void op_mod(stack_t **head, unsigned int line_number);
 void op_swap(stack_t **head, unsigned int line_number);
 void op_nop(stack_t **head, unsigned int line_number);
 void op_pint(stack_t **head, unsigned int line_number);
+void op_pstr(stack_t **head, unsigned int line_number);
 void free_stack(stack_t *head);
 char **parse_line(char *line);
 void (*getop(char *s))(stack_t **stack, unsigned int line_number);
@@ -70,4 +75,5 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void add_node(char *str);
 void free_list(used_m **head);
 void op_pchar(stack_t **head, unsigned int l_number);
+void handle_error(int flag, unsigned int line_number, char *name)
 #endif
