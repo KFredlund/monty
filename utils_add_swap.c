@@ -8,24 +8,21 @@
  */
 void op_add(stack_t **head, unsigned int line_number)
 {
-	int i = 0;
 	stack_t *current = *head;
-	stack_t *new;
+	int i = 0;
 
-	new = malloc(sizeof(stack_t));
-	if (!new)
-		new = NULL;
-	i = current->n + current->next->n;
-	new->n = i;
-	new->next = NULL;
-	new->prev = NULL;
-	if (current)
+	if ((*head)->next->next)
 	{
-		new = current->next;
-		new->n = i;
-		(*head)->next->prev = new;
+		i = current->n + current->next->n;
+		current->next->n = i;
+		free(current);
+		*head = (*head)->next;
 	}
-	*head = new;
+	else
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 }
 /**
  * op_swap - swaps the top two nodes
@@ -58,26 +55,22 @@ void op_swap(stack_t **head, unsigned int line_number)
  */
 void op_sub(stack_t **head, unsigned int line_number)
 {
-	int i = 0;
 	stack_t *current = *head;
-	stack_t *new;
+	int i = 0;
 
-	new = malloc(sizeof(stack_t));
-	if (!new)
-		new = NULL;
-	i = current->n - current->next->n;
-	new->n = i;
-	new->next = NULL;
-	new->prev = NULL;
-	if (current)
+	if ((*head)->next->next)
 	{
-		new = current->next;
-		new->n = i;
-		(*head)->next->prev = new;
+		i = current->n - current->next->n;
+		current->next->n = i;
+		free(current);
+		*head = (*head)->next;
 	}
-	*head = new;
+	else
+	{
+		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 }
-
 /**
  * op_div - divides the data of the top node from the second,
  * and creates a new node and replaces them
@@ -87,24 +80,22 @@ void op_sub(stack_t **head, unsigned int line_number)
  */
 void op_div(stack_t **head, unsigned int line_number)
 {
-	int i = 0;
 	stack_t *current = *head;
-	stack_t *new;
+	int i = 0;
 
-	new = malloc(sizeof(stack_t));
-	if (!new)
-		new = NULL;
-	i = current->n / current->next->n;
-	new->n = i;
-	new->next = NULL;
-	new->prev = NULL;
-	if (current)
+	if ((*head)->next->next)
 	{
-		new = current->next;
-		new->n = i;
-		(*head)->next->prev = new;
+		i = current->n / current->next->n;
+		current->next->n = i;
+		free(current);
+		*head = (*head)->next;
 	}
-	*head = new;
+	else
+	{
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 }
 /**
  * op_mul - multiplies the data of the top node from the second,
@@ -115,23 +106,20 @@ void op_div(stack_t **head, unsigned int line_number)
  */
 void op_mul(stack_t **head, unsigned int line_number)
 {
-	int i = 0;
 	stack_t *current = *head;
-	stack_t *new;
+	int i = 0;
 
-	new = malloc(sizeof(stack_t));
-	if (!new)
-		new = NULL;
-	i = current->n * current->next->n;
-	new->n = i;
-	new->next = NULL;
-	new->prev = NULL;
-	if (current)
+	if ((*head)->next->next)
 	{
-		new = current->next;
-		new->n = i;
-		(*head)->next->prev = new;
+		i = current->n * current->next->n;
+		current->next->n = i;
+		free(current);
+		*head = (*head)->next;
 	}
-	*head = new;
-}
+	else
+	{
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
+}

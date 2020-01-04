@@ -21,7 +21,6 @@ void op_mod(stack_t **head, unsigned int line_number)
 	{
 		i = current->n % current->next->n;
 		current->next->n = i;
-	//	*head = current->next;
 		free(current);
 		*head = (*head)->next;
 	}
