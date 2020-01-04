@@ -29,11 +29,12 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 };
 		int i = 0;
 
-		while (i < 19)
+		while (ops[i].opcode != NULL)
 		{
+			printf("%d\n", i);
 			if (strcmp(ops[i].opcode, s) == 0)
 				return (ops[i].f);
 			i++;
 		}
-	return (NULL);
+	handle_error(3, 0, s);
 }	

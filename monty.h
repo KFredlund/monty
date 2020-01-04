@@ -75,5 +75,5 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void add_node(char *str);
 void free_list(used_m **head);
 void op_pchar(stack_t **head, unsigned int l_number);
-void handle_error(int flag, unsigned int line_number, char *name)
+void handle_error(int flag, unsigned int line_number, char *name);
 #endif
