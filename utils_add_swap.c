@@ -18,6 +18,13 @@ void op_add(stack_t **head, unsigned int line_number)
 		free(current);
 		*head = (*head)->next;
 	}
+	else if ((*head)->next)
+	{
+		i = current->n + current->next->n;
+		current->next->n = i;
+		free(current);
+		*head = (*head)->next;
+	}
 	else
 		handle_error(8, line_number, "hiiii");
 }
