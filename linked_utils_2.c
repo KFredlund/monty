@@ -10,7 +10,7 @@ void op_pint(stack_t **head, unsigned int line_number)
 
 void check_push(char **tokens, unsigned int line)
 {
-	if (strcmp(tokens[1], "push") == 0)
+	if (strcmp(tokens[0], "push") == 0)
 	{
 		if (is_integer(tokens[1]) == 0)
 			n = atoi(tokens[1]);
@@ -21,11 +21,12 @@ void check_push(char **tokens, unsigned int line)
 
 int is_integer(char *str)
 {
-	int i = 0;
-	
-	while(str[i])
-		if (isdigit(str[i]) == 0 && isdigit(str[i]) != '-')
+	unsigned long i = 0;
+	while(i < strlen(str))
+	{
+		if (isdigit(str[i]) == 0 && str[0] != '-')
 			return (1);
 		i++;
+	}
 	return (0);
 }

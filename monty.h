@@ -76,4 +76,5 @@ void add_node(char *str);
 void free_list(used_m **head);
 void op_pchar(stack_t **head, unsigned int l_number);
 void handle_error(int flag, unsigned int line_number, char *name);
+void check_push(char **tokens, unsigned int line);
 #endif

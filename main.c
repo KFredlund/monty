@@ -37,8 +37,7 @@ int main(int argc, char **argv)
 			tokens = parse_line(line);
 			func = getop(tokens[0], count);
 			if (tokens[1] != NULL)
-				n = atoi(tokens[1]);
-			/*else if isdigit(tokens[1] == 0)*/
+				check_push(tokens, count);
 			func(&list, count), free(tokens);
 		}
 		else
