@@ -15,7 +15,7 @@ char **parse_line(char *line)
 	char **tokens = NULL;
 	char *token = NULL;
 
-	tokens = malloc(sizeof(char *) * buffer_size);
+	tokens = malloc(sizeof(char *) * 3);
 	if (!tokens)
 	{
 		exit(EXIT_FAILURE);

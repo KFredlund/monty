@@ -5,12 +5,12 @@
 *
 * Return: Never
 */
-void (*getop(char *s))(stack_t **stack, unsigned int line_number)
+void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {
 		{"push", op_push},
 		{"pall", op_pall},
-	/*	{"pint", op_pint}, */
+		{"pint", op_pint}, 
 		{"pop", op_pop},
 		{"swap", op_swap},
 		{"add", op_add},
@@ -31,10 +31,10 @@ void (*getop(char *s))(stack_t **stack, unsigned int line_number)
 
 		while (ops[i].opcode != NULL)
 		{
-			printf("%d\n", i);
 			if (strcmp(ops[i].opcode, s) == 0)
 				return (ops[i].f);
 			i++;
 		}
-	handle_error(3, 0, s);
+	handle_error(3, count, s);
+	return(NULL);
 }	

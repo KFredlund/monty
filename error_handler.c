@@ -74,6 +74,9 @@ void handle_error_2(int flag, unsigned int line_number)
 		case 14: /* Mod fails, by zero */
 			fprintf(stderr, "L%u: division by zero\n", line_number);
 			break;
+		case 0:
+			fprintf(stderr, "USAGE: monty file\n");
+			break;
 	}
 	free_list(&tok_get);
 	free_stack(list);

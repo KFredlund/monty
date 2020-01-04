@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 		if (i != -1)
 		{
 			tokens = parse_line(line);
-			func = getop(tokens[0]);
+			func = getop(tokens[0], count);
 			if (tokens[1] != NULL)
 				n = atoi(tokens[1]);
 			/*else if isdigit(tokens[1] == 0)*/
