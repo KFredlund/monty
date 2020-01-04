@@ -59,10 +59,12 @@ void op_add(stack_t **head, unsigned int line_number);
 void op_sub(stack_t **head, unsigned int line_number);
 void op_swap(stack_t **head, unsigned int line_number);
 void op_nop(stack_t **head, unsigned int line_number);
+void op_pint(stack_t **head, unsigned int line_number);
 void free_stack(stack_t *head);
 char **parse_line(char *line);
 void (*getop(char *s))(stack_t **stack, unsigned int line_number);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void add_node(char *str);
 void free_list(used_m **head);
+void op_pchar(stack_t **head, unsigned int l_number);
 #endif

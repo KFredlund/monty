@@ -38,6 +38,7 @@ int main(int argc, char **argv)
 		}
 		else
 			c = 0;
+		free(tokens);
 		count++;
 	}
 	fclose(fp);
