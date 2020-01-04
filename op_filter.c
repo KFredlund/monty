@@ -33,7 +33,7 @@ void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int l)
 		int i = 0;
 
 		if (s)
-		{	
+		{
 			while (ops[i].opcode != NULL)
 			{
 				if (strcmp(ops[i].opcode, s) == 0)
@@ -44,5 +44,5 @@ void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int l)
 			return (NULL);
 		}
 		else
-			return(ops[6].f);
+			return (ops[6].f);
 }
