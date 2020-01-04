@@ -51,7 +51,6 @@ void handle_error(int flag, unsigned int line_number, char *name)
 	fclose(fp);
 	exit(EXIT_FAILURE);
 }
-;
 /**
  * handle_error_2 - Handles errors of monty program
  * @flag: Flag for specfic error
