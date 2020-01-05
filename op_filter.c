@@ -22,8 +22,7 @@ void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int l)
 		{"mod", op_mod},
 		{"pchar", op_pchar},
 		{"pstr", op_pstr},
-/*
-*		{"rotl", "op_rotl"},
+/*		{"rotl", op_rotl},
 *		{"rotr", "op_rotr"},
 *		{"stack", "op_stack"},
 *		{"queue", "op_queue"},
@@ -32,7 +31,7 @@ void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int l)
 };
 		int i = 0;
 
-		if (s)
+		if (s && s[0] != '#')
 		{
 			while (ops[i].opcode != NULL)
 			{
