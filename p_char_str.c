@@ -31,7 +31,7 @@ void op_pstr(stack_t **head, unsigned int line_number)
 	(void)line_number;
 
 	current = *head;
-	while (current->next)
+	while (current)
 	{
 		if (current->n > 127 || current->n < 32)
 		{
@@ -40,5 +40,5 @@ void op_pstr(stack_t **head, unsigned int line_number)
 		printf("%c", current->n);
 		current = current->next;
 	}
-	putchar('\n');
+	printf("\n");
 }
