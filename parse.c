@@ -21,7 +21,7 @@ char **parse_line(char *line)
 		exit(EXIT_FAILURE);
 	}
 	token = strtok(line, DELIMINATOR);
-	while (token != NULL)
+	while (location < 2)
 	{
 		tokens[location] = token;
 		token = strtok(NULL, DELIMINATOR);
