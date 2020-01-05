@@ -44,5 +44,7 @@ int is_integer(char *str)
 			return (1);
 		i++;
 	}
+	if (str[0] == '-' && strlen(str) == 1)
+		return (1);
 	return (0);
 }
