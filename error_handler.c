@@ -67,7 +67,7 @@ void handle_error_2(int flag, unsigned int line_number)
 			fprintf(stderr, "L%u: division by zero\n", line_number);
 			break;
 		case 12: /*Multiply Fails */
-			fprintf(stderr, "L%u: can't mul, stack too short", line_number);
+			fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 			break;
 		case 13: /* Mod fails too short */
 			fprintf(stderr, "L%u: can't mod, stack too short\n", line_number);
