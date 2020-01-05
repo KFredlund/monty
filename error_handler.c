@@ -75,6 +75,12 @@ void handle_error_2(int flag, unsigned int line_number)
 		case 14: /* Mod fails, by zero */
 			fprintf(stderr, "L%u: division by zero\n", line_number);
 			break;
+		case 15: /* Can't pchar, value out of range */
+			fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+			break;
+		case 16: /* Pchar empty stack */
+			fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+			break;
 		case 0:
 			fprintf(stderr, "USAGE: monty file\n");
 			break;

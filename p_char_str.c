@@ -11,15 +11,11 @@ void op_pchar(stack_t **head, unsigned int line_number)
 	stack_t *current;
 
 	if (*head == NULL || head == NULL)
-	{
-		exit(EXIT_FAILURE);
-	}
+		handle_error(16, line_number, "hiiii");
+
 	current = *head;
 	if (current->n > 127 || current->n < 0)
-	{
-		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+		handle_error(15, line_number, "hiiii");
 	printf("%c\n", current->n);
 }
 /**
