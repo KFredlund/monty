@@ -56,11 +56,12 @@ void op_swap(stack_t **head, unsigned int line_number)
  */
 void op_sub(stack_t **head, unsigned int line_number)
 {
-	stack_t *current = *head;
+	stack_t *current;
 	int i = 0;
 
-	if ((*head)->next->next)
+	if (*head && (*head)->next)
 	{
+		current = *head;
 		i = current->n - current->next->n;
 		current->next->n = i;
 		free(current);
@@ -83,7 +84,7 @@ void op_div(stack_t **head, unsigned int line_number)
 
 	if ((*head)->n == 0)
 		handle_error(11, line_number, "hiiiii");
-	if ((*head)->next->next)
+	if (*head && (*head)->next)
 	{
 		i = current->n / current->next->n;
 		current->next->n = i;
