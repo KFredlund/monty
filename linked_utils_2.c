@@ -21,13 +21,15 @@ void op_pint(stack_t **head, unsigned int line_number)
  */
 void check_push(char **tokens, unsigned int line)
 {
-	if (strcmp(tokens[0], "push") == 0)
+	if (strcmp(tokens[0], "push") == 0 && tokens[1])
 	{
 		if (is_integer(tokens[1]) == 0)
 			n = atoi(tokens[1]);
 		else
 			handle_error(4, line, "hiiiii");
 	}
+	else if (strcmp(tokens[0], "push") == 0 && !tokens[1])
+		handle_error(4, line, "hiiii");
 }
 /**
  * is_integer - Checks if the input is an integer

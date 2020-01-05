@@ -32,12 +32,17 @@ void (*getop(char *s, unsigned int count))(stack_t **stack, unsigned int l)
 };
 		int i = 0;
 
-		while (ops[i].opcode != NULL)
-		{
-			if (strcmp(ops[i].opcode, s) == 0)
-				return (ops[i].f);
-			i++;
+		if (s)
+		{	
+			while (ops[i].opcode != NULL)
+			{
+				if (strcmp(ops[i].opcode, s) == 0)
+					return (ops[i].f);
+				i++;
+			}
+			handle_error(3, count, s);
+			return (NULL);
 		}
-	handle_error(3, count, s);
-	return (NULL);
+		else
+			return(ops[6].f);
 }

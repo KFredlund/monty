@@ -1,7 +1,7 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#define DELIMINATOR "\n "
+#define DELIMINATOR "\t\n "
 #define BUFFERSIZE 1024
 
 
